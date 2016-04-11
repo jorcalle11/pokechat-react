@@ -1,0 +1,105 @@
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #F44336;
+  margin: 0;
+  padding: 0;
+  padding-top: 90px;
+}
+
+.PokeApp {
+  text-align: center;
+}
+
+.PokeHeader {
+  background-color: #D32F2F;
+  box-shadow: 0 5px 10px 0px rgba(0,0,0,0.3);
+  color: #FFFFFF;
+  font-size: 2.5em;
+  font-weight: bold;
+  position: fixed;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
+  top: 0;
+  width: 100%;
+}
+
+.PokeHeader a {
+  color: #FFFFFF;
+}
+
+.PokeHeader span {
+  margin-left: 10px;
+}
+
+.PokeAvatar {
+  overflow: hidden;
+}
+
+.PokeAvatar img {
+  max-width: 100%;
+}
+
+.PokeRow {
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.2);
+  box-shadow: 3px 7px 10px 0px rgba(0,0,0,0.3);
+  background-color: #FFFFFF;
+  display: inline-block;
+  margin: 5px;
+  height: 200px;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: top;
+  width: 95%;
+}
+
+.PokeRow:hover {
+  outline: 4px solid black;
+  cursor: pointer;
+}
+
+.PokeRow span {
+  background-color: #212121;
+  color: #FFFFFF;
+  float: left;
+  width: 30px;
+}
+
+.contact {
+  float: right;
+}
+
+.contact span {
+  margin-right: 10px;
+}
+
+.twitter:hover {
+  color: #1DA1F2;
+}
+
+.facebook:hover {
+  color: #3A5795;
+}
+
+.github:hover {
+  color: #333333;
+}
+
+@media only screen and (min-width : 480px) {
+  .PokeRow {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width : 768px) {
+  .PokeRow {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width : 992px) {
+  .PokeRow {
+    width: 15%;
+  }
+}
