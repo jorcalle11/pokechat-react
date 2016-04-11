@@ -63,7 +63,8 @@ gulp.task('build:js', () => {
   }).bundle()
     .pipe(source(paths.scripts.build.output))
     .pipe(buffer())
-    .pipe(gulp.dest(paths.scripts.build.js));
+    .pipe(gulp.dest(paths.scripts.build.js))
+    .pipe(connect.reload());
 });
 
 gulp.task('watch', () => {

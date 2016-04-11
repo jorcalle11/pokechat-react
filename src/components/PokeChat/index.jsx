@@ -1,13 +1,40 @@
 import React from 'react';
 
 class PokeChat extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = { messages: [] };
+  }
   render() {
+    let avatar = 'http://veekun.com/dex/media/pokemon/main-sprites/x-y/1.png';
     return (
       <section className="PokeChat">
+        {
+          this.state.messages.map((message, i) => {
+            return <PokeMessage message={message} />
+          })
+        }
         <header>Chat</header>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <article className="message">
+          <img src={avatar} className="avatar"></img>
+          <p>bulbasaur, bulbasaur, bulbasaur !!</p>
+        </article>
+        <article className="message">
+          <img src={avatar} className="avatar"></img>
+          <p>bulbasaur, bulbasaur, bulbasaur !!</p>
+        </article>
+        <article className="message">
+          <img src={avatar} className="avatar"></img>
+          <p>bulbasaur, bulbasaur, bulbasaur !!</p>
+        </article>
+        <article className="message">
+          <img src={avatar} className="avatar"></img>
+          <p>bulbasaur, bulbasaur, bulbasaur !!</p>
+        </article>
+        <article className="message">
+          <img src={avatar} className="avatar"></img>
+          <p>bulbasaur, bulbasaur, bulbasaur !!</p>
+        </article>
       </section>
     )
   }

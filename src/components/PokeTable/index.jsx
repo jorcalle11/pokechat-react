@@ -4,7 +4,7 @@ import PokeRow from '../PokeRow';
 class PokeTable extends React.Component {
   render() {
     return (
-      <section className="PokeTable">
+      <section className="PokeTable scroll">
         {
           this.props.pokemons.map((pokemon,i) => {
             return (

@@ -9,11 +9,10 @@
 .PokeChat {
   background-color: #fff;
   box-shadow: 3px 7px 10px 0px rgba(0,0,0,0.3);
-  position: relative;
   left: 72%;
   display: block;
   width: 25%;
-  height: 600px;
+  height: 630px;
   position: fixed;
   vertical-align: top;
   overflow-y: auto;
@@ -24,6 +23,15 @@
   color: #fff;
   padding: 10px;
   text-align: center;
+}
+.avatar {
+  float: left;
+  padding: 5px;
+  margin-right: 5px;
+}
+.message {
+  overflow: hidden;
+  border-bottom: 1px solid #ff5722;
 }
 
 .PokeHeader {
@@ -98,12 +106,11 @@
 }
 
 .PokeTable {
-  border: 1px solid #00f;
   display: block;
   margin-left: 5px;
   margin-right: 10px;
   position: fixed;
-  max-height: 85%;
+  max-height: 83%;
   overflow-y: auto;
   text-align: center;
   width: 70%;
