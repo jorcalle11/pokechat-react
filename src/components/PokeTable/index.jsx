@@ -1,10 +1,10 @@
 import React from 'react';
-import PokeRow from './PokeRow';
+import PokeRow from '../PokeRow';
 
 class PokeTable extends React.Component {
   render() {
     return (
-      <section >
+      <section className="PokeTable">
         {
           this.props.pokemons.map((pokemon,i) => {
             return (

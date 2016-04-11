@@ -1,0 +1,31 @@
+.PokeRow
+  box-shadow 3px 7px 10px 0px rgba(0,0,0,0.3)
+  background-color #FFFFFF
+  display inline-block
+  height 200px
+  margin 5px
+  overflow hidden
+  vertical-align top
+  width: 95%
+
+.PokeRow:hover
+  outline 4px solid black
+  cursor pointer
+
+.PokeRow span
+  background-color #212121
+  color #FFFFFF
+  float left
+  width 30px
+
+@media only screen and (min-width : 480px)
+  .PokeRow
+    width 40%
+
+@media only screen and (min-width : 768px)
+  .PokeRow
+    width 30%
+
+@media only screen and (min-width : 992px)
+  .PokeRow
+    width 18%
