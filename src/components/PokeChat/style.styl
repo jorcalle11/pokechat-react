@@ -25,16 +25,17 @@
   overflow hidden
   border-bottom 1px solid #FF5722
 
-.animation-enter
+.example-enter
   opacity 0.01
 
-.animation-enter .animation-enter-active
+.example-enter .animation-enter-active
   opacity 1
   transition opacity 500ms ease-in
 
-.animation-leave
+.example-leave
   opacity 1
 
-.animation-leave .animation-leave-active
+.example-leave .example-leave-active
   opacity 0.01
+  -webkit-transition opacity 300ms ease-in
   transition opacity 300ms ease-in

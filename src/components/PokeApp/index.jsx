@@ -3,6 +3,8 @@ import React from 'react';
 import PokeTable from '../PokeTable';
 import PokeHeader from '../PokeHeader';
 import Pokechat from '../PokeChat';
+import uid from 'uid';
+import io from 'socket.io-client';
 
 class PokeApp extends React.Component {
 
@@ -10,10 +12,11 @@ class PokeApp extends React.Component {
     super(props);
     this.state = { pokemons: [], messages: [] };
     this.onGrowl = this.onGrowl.bind(this);
+    this.user = uid(10);
   }
 
   componentWillMount() {
-    fetch('http://localhost:3000/pokemons/')
+    fetch('http://192.168.1.11:3000/pokemons/')
       .then((response) => {
         return response.json();
       })
@@ -23,18 +26,29 @@ class PokeApp extends React.Component {
       .catch((err) => {
         console.log(err);
       });
+
+    this.socket = io('http://192.168.1.11:3000');
+    this.socket.on('message', (message) => {
+      if (message.user !== this.user) {
+        this.newMessage(message);
+      }
+    });
   }
 
   onGrowl(pokemon) {
-    let text = `${pokemon.name}, ${pokemon.name}, ${pokemon.name}!!!`;
-    this.state.messages.push({ avatar: pokemon.avatar, text : text });
-    let messages = this.state.messages;
-    this.setState({ messages: messages });
+    pokemon.user = this.user;
+    this.newMessage(pokemon);
+    this.socket.emit('message', pokemon);
   }
 
-
+  newMessage(msg) {
+    this.state.messages.push(msg);
+    let message = this.state.messages;
+    this.setState({messages: message});
+  }
 
   render() {
+
     if(!this.state.pokemons.length) {
       return (
         <section className="PokeApp">

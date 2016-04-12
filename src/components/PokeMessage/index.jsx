@@ -5,7 +5,7 @@ class PokeMessage extends React.Component {
     return (
       <article className="message">
         <img src={this.props.message.avatar} className="avatar"></img>
-        <p>{this.props.message.text}</p>
+        <p>{this.props.message.name}, {this.props.message.name}, {this.props.message.name}!!!</p>
       </article>
     )
   }

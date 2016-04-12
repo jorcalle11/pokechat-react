@@ -7,13 +7,11 @@ class PokeChat extends React.Component {
     return (
       <section className="PokeChat">
         <header>Chat</header>
-        <ReactCssTransitionsGroup transitionName="animation" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-          {
-            this.props.messages.map((message, i) => {
-              return <PokeMessage key={i} message={message} />
-            })
-          }
-        </ReactCssTransitionsGroup>
+        {
+          this.props.messages.map((message,i) => {
+            return <PokeMessage key={i} message={message} />
+          })
+        }
       </section>
     )
   }

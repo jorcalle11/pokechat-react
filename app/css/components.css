@@ -37,19 +37,25 @@
   overflow: hidden;
   border-bottom: 1px solid #ff5722;
 }
-.animation-enter {
+.example-enter {
   opacity: 0.01;
 }
-.animation-enter .animation-enter-active {
+.example-enter .animation-enter-active {
   opacity: 1;
   transition: opacity 500ms ease-in;
 }
-.animation-leave {
+.example-leave {
   opacity: 1;
 }
-.animation-leave .animation-leave-active {
+.example-leave .example-leave-active {
   opacity: 0.01;
+  -webkit-transition: opacity 300ms ease-in;
   transition: opacity 300ms ease-in;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
 }
 
 .PokeHeader {
@@ -85,11 +91,6 @@
 }
 .github:hover {
   color: #333;
-}
-
-.avatar {
-  width: 48px;
-  height: 48px;
 }
 
 .PokeRow {
