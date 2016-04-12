@@ -73,4 +73,6 @@ gulp.task('watch', () => {
   gulp.watch(paths.styles.css, ['css']);
 });
 
+gulp.task('build', ['build:js','build:css']);
+
 gulp.task('default', ['connect','watch']);

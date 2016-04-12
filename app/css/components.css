@@ -69,6 +69,11 @@
   color: #333;
 }
 
+.avatar {
+  width: 48px;
+  height: 48px;
+}
+
 .PokeRow {
   box-shadow: 3px 7px 10px 0px rgba(0,0,0,0.3);
   background-color: #fff;

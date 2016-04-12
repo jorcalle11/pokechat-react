@@ -1,43 +1,21 @@
 import React from 'react';
+import PokeMessage from '../PokeMessage';
 
 class PokeChat extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = { messages: [] };
-  }
   render() {
-    let avatar = 'http://veekun.com/dex/media/pokemon/main-sprites/x-y/1.png';
     return (
       <section className="PokeChat">
+        <header>Chat</header>
         {
-          this.state.messages.map((message, i) => {
-            return <PokeMessage message={message} />
+          this.props.messages.map((message, i) => {
+            return <PokeMessage key={i} message={message} />
           })
         }
-        <header>Chat</header>
-        <article className="message">
-          <img src={avatar} className="avatar"></img>
-          <p>bulbasaur, bulbasaur, bulbasaur !!</p>
-        </article>
-        <article className="message">
-          <img src={avatar} className="avatar"></img>
-          <p>bulbasaur, bulbasaur, bulbasaur !!</p>
-        </article>
-        <article className="message">
-          <img src={avatar} className="avatar"></img>
-          <p>bulbasaur, bulbasaur, bulbasaur !!</p>
-        </article>
-        <article className="message">
-          <img src={avatar} className="avatar"></img>
-          <p>bulbasaur, bulbasaur, bulbasaur !!</p>
-        </article>
-        <article className="message">
-          <img src={avatar} className="avatar"></img>
-          <p>bulbasaur, bulbasaur, bulbasaur !!</p>
-        </article>
       </section>
     )
   }
 }
+
+PokeChat.defaultProps = { messages: [] };
 
 export default PokeChat;

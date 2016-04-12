@@ -1,17 +1,14 @@
 import React from 'react';
 
-class PokeMessage {
-  constructor() {
-
-  }
-
+class PokeMessage extends React.Component {
   render() {
-    let avatar = `http://veekun.com/dex/media/pokemon/main-sprites/x-y/${this.props.pokemon.number}.png`;
     return (
       <article className="message">
-        <img src={avatar} className="avatar"></img>
-        <p>{this.props.pokemon.name}, this.props.pokemon.name}, this.props.pokemon.name}!!!</p>
+        <img src={this.props.message.avatar} className="avatar"></img>
+        <p>{this.props.message.text}</p>
       </article>
     )
   }
 }
+
+export default PokeMessage;
