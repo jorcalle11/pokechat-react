@@ -27,7 +27,8 @@ const paths = {
     },
     server: {
       input: './src/server/server.js',
-      output: './server.js'
+      output: './build/server.js',
+      build: './build'
     },
     build: {
       output: 'bundle.js',
@@ -71,7 +72,7 @@ gulp.task('build:js', () => {
 gulp.task('transpilate', () => {
 	gulp.src(paths.scripts.server.input)
 		.pipe(babel())
-		.pipe(gulp.dest('./'));
+		.pipe(gulp.dest(paths.scripts.server.build));
 });
 
 gulp.task('watch', () => {
