@@ -7,6 +7,8 @@ import source     from 'vinyl-source-stream';
 import stylus     from 'gulp-stylus';
 import concat     from 'gulp-concat';
 import sourcemaps from 'gulp-sourcemaps';
+import babel      from 'gulp-babel';
+import nodemon    from 'gulp-nodemon';
 
 const paths = {
   root: './app',
@@ -24,6 +26,10 @@ const paths = {
       input : './src/app.jsx',
       js    : './src/**/*.jsx'
     },
+    server: {
+      input: './src/server/server.js',
+      output: './server.js'
+    },
     build: {
       output: 'bundle.js',
       js    : './app/js/'
@@ -31,19 +37,30 @@ const paths = {
   }
 };
 
-gulp.task('connect', () => {
-  connect.server({
-    root: paths.root,
-    hostname: '0.0.0.0',
-    port : 3000,
-    livereload: true
+// gulp.task('connect', () => {
+//   connect.server({
+//     root: paths.root,
+//     hostname: '0.0.0.0',
+//     port : 3000,
+//     livereload: true
+//   });
+// });
+
+gulp.task('nodemon', () => {
+  nodemon({
+    script: paths.scripts.server.output,
+    watch: ['./src'],
+    env: {
+      PORT: 3000
+    },
+    tasks: ['transpilate','build:js']
   });
 });
 
-gulp.task('css', () => {
-  gulp.src(paths.styles.css)
-  .pipe(connect.reload());
-});
+// gulp.task('css', () => {
+//   gulp.src(paths.styles.css)
+//   .pipe(connect.reload());
+// });
 
 gulp.task('build:css', () => {
   gulp.src(paths.styles.stylus.input)
@@ -67,12 +84,18 @@ gulp.task('build:js', () => {
     .pipe(connect.reload());
 });
 
+gulp.task('transpilate', () => {
+	gulp.src(paths.scripts.server.input)
+		.pipe(babel())
+		.pipe(gulp.dest('./'));
+});
+
 gulp.task('watch', () => {
   gulp.watch(paths.scripts.src.js, ['build:js']);
   gulp.watch(paths.styles.stylus.input, ['build:css']);
-  gulp.watch(paths.styles.css, ['css']);
+  //gulp.watch(paths.styles.css, ['css']);
 });
 
-gulp.task('build', ['build:js','build:css']);
+gulp.task('build', ['transpilate','build:js','build:css']);
 
-gulp.task('default', ['connect','watch']);
+gulp.task('default', ['nodemon','watch']);
